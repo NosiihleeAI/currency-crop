@@ -1,0 +1,36 @@
+def show_menu():
+    print("\n=== CURRENCY CONVERTER ===")
+    print("1. Convert USD to ZAR (Rand)")
+    print("2. Convert ZAR (Rand) to USD")
+    print("3. Exit")
+
+# NOTE: You can change this rate anytime
+USD_TO_ZAR_RATE = 18.50   # Example rate
+ZAR_TO_USD_RATE = 1 / USD_TO_ZAR_RATE
+
+def usd_to_zar(usd):
+    return usd * USD_TO_ZAR_RATE
+
+def zar_to_usd(zar):
+    return zar * ZAR_TO_USD_RATE
+
+while True:
+    show_menu()
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        amount = float(input("Enter amount in USD: $"))
+        result = usd_to_zar(amount)
+        print(f"${amount} = R{result:.2f}")
+
+    elif choice == "2":
+        amount = float(input("Enter amount in ZAR (Rand): R"))
+        result = zar_to_usd(amount)
+        print(f"R{amount} = ${result:.2f}")
+
+    elif choice == "3":
+        print("Exiting... Goodbye!")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
